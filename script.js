@@ -21,7 +21,7 @@ function removeLoadingSpinner() {
 // Get Quote from API
 async function getQuote() {
   showLoadingSpinner();
-  const proxyUrl = "https://salty-island-54084.herokuapp.com/";
+  const proxyUrl = "https://lit-citadel-42195.herokuapp.com/";
   const apiUrl =
     "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
   try {
