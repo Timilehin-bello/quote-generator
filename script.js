@@ -3,9 +3,24 @@ const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
+const loader = document.getElementById("loader");
+
+// Show Loading
+function loading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+function complete() {
+  if (!loader.hidden) {
+    loader.hidden = true;
+    quoteContainer.hidden = false;
+  }
+}
 
 // Get Quote from API
 async function getQuote() {
+  loading();
   const proxyUrl = "https://salty-island-54084.herokuapp.com/";
   const apiUrl =
     "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
@@ -26,6 +41,9 @@ async function getQuote() {
       quoteText.classList.remove("long-quote");
     }
     quoteText.innerText = data.quoteText;
+
+    // Stop Loader, Show Quote
+    complete();
   } catch (error) {
     getQuote();
   }
