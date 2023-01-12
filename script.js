@@ -18,7 +18,7 @@ function removeLoadingSpinner() {
   }
 }
 
-// Get Quote from API
+// Get Quotes from API
 async function getQuote() {
   showLoadingSpinner();
   const proxyUrl = "https://lit-citadel-42195.herokuapp.com/";
